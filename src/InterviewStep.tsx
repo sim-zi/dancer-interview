@@ -9,7 +9,7 @@ const caption = cva({
   variants: {
     type: {
       default: "mt-12",
-      longText: "absolute bottom-20 bg-black bg-opacity-70",
+      longText: "absolute bg-black bg-opacity-70",
     },
   },
   defaultVariants: {
@@ -46,6 +46,9 @@ export const InterviewStep: React.FC = () => {
       ?.content ?? ""
   );
 
+  // const assistantMessage =
+  //   "개인적인 춤에서 만족감을 느끼셨다니 좋습니다. 밝은 표정으로 면접에 임해주어서 감사합니다. 지원자분의 현대무용에 대한 이해도와 전문성을 평가하기 위한 질문들에 대한 답변이 다소 부족했기 때문에, 점수는 100점 만점 중 40점을 드리겠습니다. 현대무용수로서의 역량과 관심, 지식의 깊이를 더 보여주시면 좋았을 것 같습니다. 면접을 마무리하기 전에, 혹시 스스로 만족했던 그 개인적인 춤을 보여주실 수 있나요?";
+
   useEffect(() => {
     if (assistantMessage === "") {
       return;
@@ -77,6 +80,9 @@ export const InterviewStep: React.FC = () => {
         className={caption({
           type: assistantMessage.length > 150 ? "longText" : "default",
         })}
+        style={{
+          top: 440,
+        }}
       >
         {assistantMessage && `(면접관) ${assistantMessage}`}
       </p>
